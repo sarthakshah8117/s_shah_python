@@ -2,7 +2,7 @@
 
 Pick your weapon and play against the computer - you'll only get a virtual sting if you lose!
 
-Prerequisites: All you need is [Python3](http://www.python.com) to play.
+Prerequisites: All you need is [Python3](http://www.python.org) to play.
 
 Clone the project, navigate to the correct directory, - cd directory name - and run the game.py file in a Python Terminal window for macOS/Linux.
 
