@@ -18,17 +18,24 @@ player = False
 
 while player is False:
 	# set player to True
+	
 	print("**********************************")
 	print("Computer lives: ", computer_lives, "/5\n")
 	print("Player lives: ", player_lives, "/5\n")
 	print("Choose your weapon!\n")
 	print("**********************************")
 
+	
+	print("**********************************")
+	print("**********************************")
 	player = input("choose rock, paper or scissors: ")
 	player = player.lower()
 
 	print("computer chose ", computer, "\n")
 	print("player chose ", player, "\n")
+	
+	print("**********************************")
+	print("**********************************")
 
 	if player == "quit":
 		exit()
@@ -60,7 +67,10 @@ while player is False:
 			computer_lives = computer_lives - 1
 
 	else:
+		print("______________________________________________")
 		print("That's not a valid choice, try again")
+		print("______________________________________________")
+
 
 
 	# handle all lives lost for player or AI

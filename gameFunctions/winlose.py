@@ -3,7 +3,7 @@ from random import randint
 def winorlose(status): 
 	# status will be either won or lost - you're passing this in as an argument
 	print("called win or lose")
-	print("************************")
+	print("******======*******=======********===========*********")
 
 	print("You", status + "! Would you like to play again?")
 
@@ -11,8 +11,11 @@ def winorlose(status):
 	print(choice)
 
 	if (choice is "N") or (choice is "n"):
+
 		print("You chose to quit.")
+
 		exit()
+		
 
 	elif (choice is "Y") or (choice is "y"):
 		# reset the game so that we can start all over again
