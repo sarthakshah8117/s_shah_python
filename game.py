@@ -1,6 +1,6 @@
 # import the random package so that we can generate a random choice
 from random import randint
-from gameFunctions import winlose, gamesshah
+from gameFunctions import winlose, gamesshah, compare
 
 while gamesshah.player is False:
 	# set player to True
@@ -14,49 +14,19 @@ while gamesshah.player is False:
 	
 	print("**********************************")
 	print("**********************************")
-	player = input("choose rock, paper or scissors: ")
-	player = player.lower()
+	gamesshah.player = input("choose rock, paper or scissors: ")
+	gamesshah.player = gamesshah.player.lower()
 
 	print("gamesshah.computer chose ", gamesshah.computer, "\n")
-	print("player chose ", player, "\n")
+	print("player chose ", gamesshah.player, "\n")
 	
 	print("**********************************")
 	print("**********************************")
 
-	if player == "quit":
-		exit()
-	elif gamesshah.computer == player:
-		print("tie! no one wins, play again")
-
-	elif player == "rock":
-		if gamesshah.computer == "paper":
-			print("You lose!", gamesshah.computer, "covers", gamesshah.player, "\n")
-			gamesshah.player_lives = gamesshah.player_lives - 1
-		else:
-			print("You win!", gamesshah.player, "smashes", gamesshah.computer, "\n")
-			gamesshah.computer_lives = gamesshah.computer_lives - 1
-
-	elif player == "paper":
-		if gamesshah.computer == "scissors":
-			print("You lose!", gamesshah.computer, "cuts", player, "\n")
-			gamesshah.player_lives = gamesshah.player_lives - 1
-		else:
-			print("You win!", gamesshah.player, "covers", gamesshah.computer, "\n")
-			gamesshah.computer_lives = gamesshah.computer_lives - 1
-
-	elif player == "scissors":
-		if gamesshah.computer == "rock":
-			print("You lose!", gamesshah.computer, "smashes", player, "\n")
-			gamesshah.player_lives = gamesshah.player_lives - 1
-		else:
-			print("You win!", gamesshah.player, "cuts", gamesshah.computer, "\n")
-			gamesshah.computer_lives = gamesshah.computer_lives - 1
-
-	else:
-		print("______________________________________________")
-		print("That's not a valid choice, try again")
-		print("______________________________________________")
-
+	### this is where you would call compare
+	compare.comparechoices(gamesshah.computer, gamesshah.player)
+	
+	### end compare stuff
 
 
 	# handle all lives lost for player or AI
