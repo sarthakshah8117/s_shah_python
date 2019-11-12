@@ -1,27 +1,13 @@
 # import the random package so that we can generate a random choice
 from random import randint
-from gameFunctions import winlose
+from gameFunctions import winlose, gamesshah
 
-# set up some variables for player and AI lives
-player_lives = 1
-computer_lives = 1
-
-# choices is an array => an array is a container that can hold multiple values
-# arrays are 0-based -> first entry is 0, 2nd is 1, 3rd is 2 etc
-choices = ["rock", "paper", "scissors"]
-
-# set the computer variable to one of these choices (0, 1 or 2)
-computer = choices[randint(0, 2)]
-
-# set up the game loop so that we don't have to restart all the time
-player = False
-
-while player is False:
+while gamesshah.player is False:
 	# set player to True
 	
 	print("**********************************")
-	print("Computer lives: ", computer_lives, "/5\n")
-	print("Player lives: ", player_lives, "/5\n")
+	print("Computer lives: ", gamesshah.computer_lives, "/", gamesshah.total_lives, "\n")
+	print("Player lives: ", gamesshah.player_lives, "/", gamesshah.total_lives, "\n")
 	print("Choose your weapon!\n")
 	print("**********************************")
 
@@ -31,7 +17,7 @@ while player is False:
 	player = input("choose rock, paper or scissors: ")
 	player = player.lower()
 
-	print("computer chose ", computer, "\n")
+	print("gamesshah.computer chose ", gamesshah.computer, "\n")
 	print("player chose ", player, "\n")
 	
 	print("**********************************")
@@ -39,32 +25,32 @@ while player is False:
 
 	if player == "quit":
 		exit()
-	elif computer == player:
+	elif gamesshah.computer == player:
 		print("tie! no one wins, play again")
 
 	elif player == "rock":
-		if computer == "paper":
-			print("You lose!", computer, "covers", player, "\n")
-			player_lives = player_lives - 1
+		if gamesshah.computer == "paper":
+			print("You lose!", gamesshah.computer, "covers", gamesshah.player, "\n")
+			gamesshah.player_lives = gamesshah.player_lives - 1
 		else:
-			print("You win!", player, "smashes", computer, "\n")
-			computer_lives = computer_lives - 1
+			print("You win!", gamesshah.player, "smashes", gamesshah.computer, "\n")
+			gamesshah.computer_lives = gamesshah.computer_lives - 1
 
 	elif player == "paper":
-		if computer == "scissors":
-			print("You lose!", computer, "cuts", player, "\n")
-			player_lives = player_lives - 1
+		if gamesshah.computer == "scissors":
+			print("You lose!", gamesshah.computer, "cuts", player, "\n")
+			gamesshah.player_lives = gamesshah.player_lives - 1
 		else:
-			print("You win!", player, "covers", computer, "\n")
-			computer_lives = computer_lives - 1
+			print("You win!", gamesshah.player, "covers", gamesshah.computer, "\n")
+			gamesshah.computer_lives = gamesshah.computer_lives - 1
 
 	elif player == "scissors":
-		if computer == "rock":
-			print("You lose!", computer, "smashes", player, "\n")
-			player_lives = player_lives - 1
+		if gamesshah.computer == "rock":
+			print("You lose!", gamesshah.computer, "smashes", player, "\n")
+			gamesshah.player_lives = gamesshah.player_lives - 1
 		else:
-			print("You win!", player, "cuts", computer, "\n")
-			computer_lives = computer_lives - 1
+			print("You win!", gamesshah.player, "cuts", gamesshah.computer, "\n")
+			gamesshah.computer_lives = gamesshah.computer_lives - 1
 
 	else:
 		print("______________________________________________")
@@ -74,14 +60,14 @@ while player is False:
 
 
 	# handle all lives lost for player or AI
-	if player_lives is 0:
+	if gamesshah.player_lives is 0:
 		winlose.winorlose("lost")
 
-	elif computer_lives is 0:
+	elif gamesshah.computer_lives is 0:
 		winlose.winorlose("won")
 
 	else:
 		# need to check all of our conditions after checking for a tie
-		player = False
-		computer = choices[randint(0, 2)]	
+		gamesshah.player = False
+		gamesshah.computer = gamesshah.choices[randint(0, 2)]	
 
