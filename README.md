@@ -16,3 +16,4 @@ Choose your weapon wisely!
 The computer chooses first; just follow the prompts.
 
 Built with Python 3.
+Author: Sarthak Shah
